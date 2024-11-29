@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test": "vitest",
+    "new-task": "bun run create.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vitest": "^2.1.6"
+  }
+}
