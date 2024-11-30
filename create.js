@@ -16,7 +16,7 @@ const askQuestion = (query) =>
 
 (async () => {
   try {
-    console.log(`\x1b[34m\x1b[1m🛠️  Создание папки с задачей\x1b[0m`);
+    console.log(`\x1b[34m\x1b[1m🛠️  Создание папки с задачей\x1b[0m\n`);
 
     const taskNumber = await askQuestion('Введите номер задачи: ');
     const taskName = await askQuestion('Введите название задачи: ');
@@ -39,7 +39,7 @@ const askQuestion = (query) =>
       `import { describe, it, expect } from "vitest";\n\ndescribe("${taskNumber} - ${taskName}", () => {\n  it("...", () => {});\n});`
     );
 
-    console.log(`\x1b[32m✅ Новая задача создана!\x1b[0m`);
+    console.log(`\x1b[32m✅ Новая задача создана!\x1b[0m\n`);
   } catch (error) {
     console.error('Произошла ошибка:', error);
   } finally {
