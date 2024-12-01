@@ -1,1 +1,1 @@
-console.log('Какой же я тупой?!')
+console.log('ZzZzz...')
