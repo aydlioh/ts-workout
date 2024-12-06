@@ -14,9 +14,11 @@ const createFile = (filePath, content) => {
 const askQuestion = (query) =>
   new Promise((resolve) => rl.question(query, resolve));
 
+const padNumber = (number) => number.toString().padStart(3, '0');
+
 (async () => {
   try {
-    console.log(`\x1b[34m\x1b[1m🛠️  Создание папки с задачей\x1b[0m\n`);
+    console.log(`\x1b[34m\x1b[1m  Создание папки с задачей\x1b[0m\n`);
 
     const taskNumber = await askQuestion('Введите номер задачи: ');
     const taskName = await askQuestion('Введите название задачи: ');
@@ -26,23 +28,24 @@ const askQuestion = (query) =>
       process.exit(1);
     }
 
-    const folderName = `${taskNumber}_${taskName}`;
+    const folderName = `${padNumber(taskNumber)}_${taskName}`;
     const folderPath = path.join(__dirname, 'tasks', folderName);
 
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
     }
 
-    createFile(path.join(folderPath, `${taskNumber}.ts`), ``);
+    createFile(path.join(folderPath, `${padNumber(taskNumber)}.ts`), ``);
     createFile(
-      path.join(folderPath, `${taskNumber}.test.ts`),
+      path.join(folderPath, `${padNumber(taskNumber)}.test.ts`),
       `import { describe, it, expect } from "vitest";\n\ndescribe("${taskNumber} - ${taskName}", () => {\n  it("...", () => {});\n});`
     );
 
-    console.log(`\x1b[32m✅ Новая задача создана!\x1b[0m\n`);
+    console.log(`\x1b[32m  Новая задача создана!\x1b[0m\n`);
   } catch (error) {
     console.error('Произошла ошибка:', error);
   } finally {
     rl.close();
   }
 })();
+
