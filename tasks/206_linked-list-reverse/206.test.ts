@@ -1,9 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect } from 'vitest';
+import { ListNode, reverseList } from './206';
 
-import { ListNode, reverseList } from "./206";
-
-describe("206 - linked-list-reverse", () => {
-  it("reverses linked list", () => {
+describe('reverseList - переворачивает связанный список', () => {
+  it('переворачивает связанный список', () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -15,7 +14,7 @@ describe("206 - linked-list-reverse", () => {
     expect(reversed?.next?.next?.val).toBe(3);
   });
 
-  it("reverses linked list with one element", () => {
+  it('переворачивает связанный список с одним элементом', () => {
     const one = new ListNode(1);
 
     const reversed = reverseList(one);
@@ -24,13 +23,13 @@ describe("206 - linked-list-reverse", () => {
     expect(reversed?.next).toBeNull();
   });
 
-  it("reverses an empty linked list", () => {
+  it('переворачивает пустой связанный список', () => {
     const reversed = reverseList(null);
 
     expect(reversed).toBeNull();
   });
 
-  it("reverses linked list with even number of elements", () => {
+  it('переворачивает связанный список с четным количеством элементов', () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -44,7 +43,7 @@ describe("206 - linked-list-reverse", () => {
     expect(reversed?.next?.next?.next?.val).toBe(4);
   });
 
-  it("reverses linked list with 5 elements", () => {
+  it('переворачивает связанный список с пятью элементами', () => {
     const five = new ListNode(5);
     const four = new ListNode(4, five);
     const three = new ListNode(3, four);
@@ -60,4 +59,3 @@ describe("206 - linked-list-reverse", () => {
     expect(reversed?.next?.next?.next?.next?.val).toBe(1);
   });
 });
-

@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
-import { ListNode, deleteDuplicates } from "./83";
+import { describe, it, expect } from 'vitest';
+import { ListNode, deleteDuplicates } from './83';
 
-describe("83 - linked-list-sorted-remove-dublicates", () => {
-  it("removes duplicates from linked list", () => {
+describe('deleteDuplicates удаляет дубликаты из связанного списка', () => {
+  it('удаляет дубликаты из связанного списка', () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -15,30 +15,30 @@ describe("83 - linked-list-sorted-remove-dublicates", () => {
     expect(result?.next?.next?.val).toBe(1);
   });
 
-  it("returns null if list is empty", () => {
+  it('возвращает null если список пустой', () => {
     expect(deleteDuplicates(null)).toBeNull();
   });
 
-  it("returns null if list has one element to remove", () => {
+  it('возвращает null если список имеет один элемент, который нужно удалить', () => {
     const one = new ListNode(1);
 
     expect(deleteDuplicates(one)).toEqual(one);
   });
 
-  it("returns node if list has one element to keep", () => {
+  it('возвращает узел если список имеет один элемент, который сохраняется', () => {
     const one = new ListNode(1);
 
     expect(deleteDuplicates(one)).toEqual(one);
   });
 
-  it("returns node if list has two elements to keep", () => {
+  it('возвращает узел если список имеет два элемента, которые сохраняются', () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
 
     expect(deleteDuplicates(two)).toEqual(two);
   });
 
-  it("removes duplicates from linked list with two duplicate elements", () => {
+  it('удаляет дубликаты из связанного списка с двумя дублирующимися элементами', () => {
     const one = new ListNode(3);
     const two = new ListNode(3, one);
     const three = new ListNode(2, two);
@@ -52,4 +52,3 @@ describe("83 - linked-list-sorted-remove-dublicates", () => {
     expect(result?.next?.next?.val).toBe(3);
   });
 });
-

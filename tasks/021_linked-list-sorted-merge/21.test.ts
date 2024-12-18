@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
-import { mergeTwoLists, ListNode } from "./21";
+import { describe, it, expect } from 'vitest';
+import { mergeTwoLists, ListNode } from './21';
 
-describe("21 - linked-list-sorted-merge", () => {
-  it("merges two sorted linked lists", () => {
+describe('mergeTwoLists сливает два отсортированных связанных списка', () => {
+  it('сливает два отсортированных связанных списка', () => {
     const one = new ListNode(3);
     const two = new ListNode(2, one);
     const three = new ListNode(1, two);
@@ -19,7 +19,7 @@ describe("21 - linked-list-sorted-merge", () => {
     expect(result?.next?.next?.next?.next?.val).toBe(5);
   });
 
-  it("returns null if list1 is null", () => {
+  it('возвращает null если list1 null', () => {
     const four = new ListNode(4);
     const five = new ListNode(5, four);
 
@@ -28,7 +28,7 @@ describe("21 - linked-list-sorted-merge", () => {
     expect(result).toEqual(five);
   });
 
-  it("returns null if list2 is null", () => {
+  it('возвращает null если list2 null', () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -38,7 +38,7 @@ describe("21 - linked-list-sorted-merge", () => {
     expect(result).toEqual(three);
   });
 
-  it("returns null if both lists are null", () => {
+  it('возвращает null если оба списка null', () => {
     const result = mergeTwoLists(null, null);
 
     expect(result).toBeNull();

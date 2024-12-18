@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { ListNode, removeElements } from "./203";
 
-describe("203 - linked-list-remove", () => {
-  it("removes elements from linked list", () => {
+describe("removeElements удаляет элементы из связанного списка", () => {
+  it("удаляет элементы из связанного списка", () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -14,26 +14,27 @@ describe("203 - linked-list-remove", () => {
     expect(result?.next?.val).toBe(1);
   });
 
-  it("returns null if list is empty", () => {
+  it("возвращает null, если список пустой", () => {
     expect(removeElements(null, 1)).toBeNull();
   });
 
-  it("returns null if list has one element to remove", () => {
+  it("возвращает null, если список имеет один элемент для удаления", () => {
     const one = new ListNode(1);
 
     expect(removeElements(one, 1)).toBeNull();
   });
 
-  it("returns node if list has one element to keep", () => {
+  it("возвращает узел, если список имеет один элемент для сохранения", () => {
     const one = new ListNode(1);
 
     expect(removeElements(one, 2)).toEqual(one);
   });
 
-  it("returns node if list has two elements to keep", () => {
+  it("возвращает узел, если список имеет два элемента для сохранения", () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
 
     expect(removeElements(two, 3)).toEqual(two);
   });
 });
+

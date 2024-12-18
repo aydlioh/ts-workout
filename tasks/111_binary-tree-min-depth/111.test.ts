@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { TreeNode, minDepth } from './111';
 
-describe('111 - binary-tree-min-depth', () => {
-  it('computes min depth for a single node tree', () => {
+describe('minDepth - функция, которая возвращает минимальную глубину бинарного дерева', () => {
+  it('вычисляет минимальную глубину для дерева из одного узла', () => {
     const root = new TreeNode(5);
 
     expect(minDepth(root)).toBe(1);
   });
 
-  it('computes min depth for a balanced tree', () => {
+  it('вычисляет минимальную глубину для сбалансированного дерева', () => {
     const root = new TreeNode(
       3,
       new TreeNode(9),
@@ -18,7 +18,7 @@ describe('111 - binary-tree-min-depth', () => {
     expect(minDepth(root)).toBe(2);
   });
 
-  it('computes min depth for an unbalanced tree', () => {
+  it('вычисляет минимальную глубину для несбалансированного дерева', () => {
     const root = new TreeNode(
       1,
       new TreeNode(2, new TreeNode(4, new TreeNode(8))),
@@ -28,7 +28,7 @@ describe('111 - binary-tree-min-depth', () => {
     expect(minDepth(root)).toBe(2);
   });
 
-  it('returns 0 for null tree', () => {
+  it('возвращает 0 для null дерева', () => {
     expect(minDepth(null)).toBe(0);
   });
 });

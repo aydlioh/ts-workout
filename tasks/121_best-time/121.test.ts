@@ -1,20 +1,20 @@
-import { describe, it, expect } from "vitest";
-import { maxProfit } from "./121";
+import { describe, it, expect } from 'vitest';
+import { maxProfit } from './121';
 
-describe("121 - best-time", () => {
-  it("should return 0 when array is empty", () => {
+describe('maxProfit - функция, которая находит максимальную прибыль при покупке и продаже акций', () => {
+  it('возвращает 0, если массив пустой', () => {
     expect(maxProfit([])).toBe(0);
   });
 
-  it("should return 0 when array has one element", () => {
+  it('возвращает 0, если в массиве только 1 элемент', () => {
     expect(maxProfit([1])).toBe(0);
   });
 
-  it("should return 4 when array is [7,1,5,3,6,4]", () => {
+  it('возвращает 4, если массив [7,1,5,3,6,4]', () => {
     expect(maxProfit([7, 1, 5, 3, 6, 4])).toBe(5);
   });
 
-  it("should return 0 when array is [7,6,4,3,1]", () => {
+  it('возвращает 0, если массив [7,6,4,3,1]', () => {
     expect(maxProfit([7, 6, 4, 3, 1])).toBe(0);
   });
 });

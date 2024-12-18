@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { ListNode, hasCycle } from "./141";
 
-describe("141 - linked-list-cycle", () => {
-  it("returns true if list has cycle", () => {
+describe("hasCycle определяет наличие цикла в связанном списке", () => {
+  it("возвращает true, если список имеет цикл", () => {
     const cycle = new ListNode(1);
     const three = new ListNode(3, cycle);
     const two = new ListNode(2, three);
@@ -12,7 +12,7 @@ describe("141 - linked-list-cycle", () => {
     expect(hasCycle(one)).toBeTruthy();
   });
 
-  it("returns false if list has no cycle", () => {
+  it("возвращает false, если список не имеет цикла", () => {
     const one = new ListNode(1);
     const two = new ListNode(2, one);
     const three = new ListNode(3, two);
@@ -20,3 +20,4 @@ describe("141 - linked-list-cycle", () => {
     expect(hasCycle(three)).toBeFalsy();
   });
 });
+
