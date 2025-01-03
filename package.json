@@ -1,9 +1,13 @@
 {
   "scripts": {
     "test": "vitest",
-    "new-task": "bun run create.js"
+    "new-task": "bun run create.js",
+    "create-task": "bun run create_v2.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^13.0.0",
+    "inquirer": "^12.3.0"
+  },
   "devDependencies": {
     "vitest": "^2.1.6"
   }
