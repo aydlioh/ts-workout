@@ -9,7 +9,7 @@ export class TreeNode {
   }
 }
 
-// VVGOOOOD
+// GOOD
 export function diameterOfBinaryTree(root: TreeNode | null): number {
   let result = 0;
 

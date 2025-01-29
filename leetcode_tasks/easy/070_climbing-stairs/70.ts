@@ -17,7 +17,7 @@ export function climbStairsNormal(n: number): number {
 // 2
 export function climbStairsReq(n: number): number {
   if (n <= 2) return n;
-  return climbStairs(n - 1) + climbStairs(n - 2);
+  return climbStairsReq(n - 1) + climbStairsReq(n - 2);
 }
 
 // 3

@@ -9,6 +9,7 @@ export class TreeNode {
   }
 }
 
+// 1
 function maxDepthHelper(root: TreeNode | null, count: number): number {
   if (!root || (root.left === null && root.right === null)) return count;
   return Math.max(

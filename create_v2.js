@@ -5,7 +5,19 @@ import inquirer from 'inquirer';
 
 const padNumber = (number) => number.toString().padStart(3, '0');
 
+const folderPaths = {
+  Leetcode: 'leetcode_tasks',
+  BigFrontendDev: 'bfe_tasks',
+};
+
 const questions = [
+  {
+    type: 'list',
+    name: 'folder',
+    message: 'Выберите платформу:',
+    choices: Object.keys(folderPaths),
+    default: 'Leetcode',
+  },
   {
     type: 'input',
     name: 'number',
@@ -29,7 +41,7 @@ const questions = [
 
 const testMock = (number, title) => `
 import { describe, it, expect } from "vitest";
-describe("${padNumber(number)} - ${title}", () => {
+describe("${padNumber(Number(number))} - ${title}", () => {
   it("UC1", () => {
     
   });
@@ -40,13 +52,12 @@ const taskMock = () => ``;
 
 const createTask = async () => {
   const answers = await inquirer.prompt(questions);
-  const { number, level, title } = answers;
+  const { number, level, title, folder } = answers;
 
-  const numberWithDifficulty = `${level[0].toUpperCase()}${padNumber(number)}`;
-  const folderName = `${numberWithDifficulty}_${title}`;
-  const taskPath = join('tasks', folderName);
-  const mainFileName = `${numberWithDifficulty}.ts`;
-  const testFileName = `${numberWithDifficulty}.test.ts`;
+  const folderName = `${title}`; // Убираем префикс уровня
+  const taskPath = join(folderPaths[folder], level, folderName); // Папки уровней: easy, medium, hard
+  const mainFileName = `${padNumber(Number(number))}.ts`;
+  const testFileName = `${padNumber(Number(number))}.test.ts`;
 
   try {
     mkdirSync(taskPath, { recursive: true });
@@ -64,12 +75,12 @@ const createTask = async () => {
   console.log(`Папка задания с тестами создана: ${taskPath}`);
 };
 
-const program = new Command();
+const cli = new Command();
 
-program
+cli
   .description(
-    'CLI для создания пространства для решения новых задач на LeetCode'
+    'CLI для создания пространства решения задач на LeetCode и BigFrontendDev'
   )
   .action(createTask);
 
-program.parse(process.argv);
+cli.parse(process.argv);
