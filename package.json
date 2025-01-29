@@ -1,7 +1,6 @@
 {
   "scripts": {
     "test": "vitest",
-    "new-task": "bun run create.js",
     "create-task": "bun run create_v2.js"
   },
   "dependencies": {
