@@ -6,7 +6,7 @@ import inquirer from 'inquirer';
 const padNumber = (number) => number.toString().padStart(3, '0');
 
 const folderPaths = {
-  Leetcode: 'leetcode_tasks',
+  LeetСode: 'leetcode_tasks',
   BigFrontendDev: 'bfe_tasks',
 };
 
@@ -54,15 +54,15 @@ const createTask = async () => {
   const answers = await inquirer.prompt(questions);
   const { number, level, title, folder } = answers;
 
-  const folderName = `${title}`; // Убираем префикс уровня
-  const taskPath = join(folderPaths[folder], level, folderName); // Папки уровней: easy, medium, hard
+  const folderName = `${padNumber(Number(number))}_${title}`;
+  const taskPath = join(folderPaths[folder], level, folderName);
   const mainFileName = `${padNumber(Number(number))}.ts`;
   const testFileName = `${padNumber(Number(number))}.test.ts`;
 
   try {
     mkdirSync(taskPath, { recursive: true });
   } catch (error) {
-    console.error(`Error creating folder: ${error}`);
+    console.error(`Ошибка при создании папки задачи: ${error}`);
     process.exit(1);
   }
 
