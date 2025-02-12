@@ -1,4 +1,4 @@
-function groupAnagrams(strs: string[]): string[][] {
+export function groupAnagrams(strs: string[]): string[][] {
   const map = new Map<string, string[]>();
 
   for (let i = 0; i < strs.length; i++) {
@@ -12,5 +12,3 @@ function groupAnagrams(strs: string[]): string[][] {
 
   return Array.from(map.values());
 }
-
-console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']));
