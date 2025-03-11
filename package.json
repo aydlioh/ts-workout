@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "vitest",
-    "create-task": "bun run create_v2.js"
+    "create-task": "bun run cli/main.ts"
   },
   "dependencies": {
     "commander": "^13.0.0",
