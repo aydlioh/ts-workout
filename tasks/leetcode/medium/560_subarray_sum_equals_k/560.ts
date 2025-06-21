@@ -12,6 +12,3 @@ export function subarraySum(nums: number[], k: number): number {
 
   return result;
 }
-
-console.log(subarraySum([1, 1, 1], 2));
-console.log(subarraySum([1, 2, 3], 3));
