@@ -1,11 +1,10 @@
-import viteLogo from '/vite.svg';
-import './rxjs-test';
-
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
+    <button id="info-btn">Add Info</button>
+    <button id="warning-btn">Add Warning</button>
+    <button id="error-btn">Add Error</button>
+    <button id="clear-btn">Clear All</button>
   </div>
+  <div id="notifications-container" style="position: fixed; top: 20px; right: 20px;"></div>
+  <div id="history-container" style="margin-top: 100px;"></div>
 `;
